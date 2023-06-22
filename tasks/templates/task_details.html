@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task on details</title>
+</head>
+<body>
+  {% block content %}
+  <main class="container">
+      <div class="row">
+          <div class="col-md-4 offset-md-4">
+              {{error}}
+              <h5 class="py-2">Edit your task...</h5>
+              <h3 class="py-3">Task title ➡️ {{task.title}}</h3>
+
+              <!-- update form -->
+              <form method="POST" >
+                  {% csrf_token %} {{form.as_p}}
+                  <button class="btn btn-success pt-2 mt-3 d-flex "> Update Task </button>
+              </form>
+
+              <!-- task_completed form -->
+              <form action="{% url 'task_completed' task.id %}" method="POST">
+                  {% csrf_token %} {{error}}
+                  <button class="btn btn-info pt-2 mt-3 d-flex "> Completed Task </button>
+              </form>
+
+              <!-- delete form -->
+              <form action="{% url 'task_deleted' task.id %}" method="POST">
+                  {% csrf_token %}   {{error}}
+                  <button class="btn btn-danger pt-2 mt-3 d-flex "> Delete Task </button>
+              </form>
+          </div>
+      </div>
+  </main>
+  {% endblock %}
+</body>
+</html>

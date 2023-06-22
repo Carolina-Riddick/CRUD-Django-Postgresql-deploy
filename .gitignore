@@ -1,0 +1,13 @@
+db.sqlite3
+venv
+__pycache__
+
+
+CREDENCIALES
+
+user : admin
+Email address: admin@admin
+psw : admin
+
+
+#django secret_key que estaba al inicio = 'django-insecure-wpg1i_k9!t^aq6wtyg!^msc5o0ppi0q35573@i9sy+4&e-mto!'
